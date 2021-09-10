@@ -2,4 +2,4 @@ venv/*
 .idea/*
 *.pyc
 *.log
-migrations/*
+migrations/versions
