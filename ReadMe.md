@@ -37,6 +37,10 @@ $ pip install -r requirements.txt
 ```
 $ python manage.py create_db
 ```
+##### Create new Directory in Migrations folder
+```
+$ mkdir migrations/versions
+```
 ##### Model Migration
 ```
 $ python manage.py db migrate
