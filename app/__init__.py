@@ -79,7 +79,9 @@ def create_app(config_name):
 
     # V1
     from app.api.v1.wallet.wallet_api import wallet_bp as wallet_v1
+    from app.api.v1.user.user_api import init_bp as init_v1
 
     app.register_blueprint(wallet_v1)
+    app.register_blueprint(init_v1)
 
     return app

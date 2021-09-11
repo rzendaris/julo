@@ -9,11 +9,11 @@
 
 ##### MacOs / Linux
 ```
-$ python3 -m venv env
+$ python3 -m venv venv
 ```
 ##### Windows
 ```
-$ py -m venv env
+$ py -m venv venv
 ```
 ---
 #### Step 2: Start shell within our python virtual environment

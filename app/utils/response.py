@@ -1,5 +1,5 @@
-
 from app.constants.status_enum import ResponseEnum
+from flask import jsonify
 
 
 def response(status, data, http_code):
@@ -12,4 +12,4 @@ def response(status, data, http_code):
     else:
         payload['data'] = data
 
-    return payload, http_code
+    return jsonify(payload), http_code
