@@ -24,13 +24,16 @@ class Config(object):
     def init_app(app):
         pass
 
+
 class DevelopmentConfig(Config):
     SQLALCHEMY_ECHO = False
     DEBUG = True
 
+
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URI') or 'postgresql:///julo_test'
+
 
 config = {
     'development': DevelopmentConfig,
