@@ -1,4 +1,4 @@
-from flask import Flask, request, current_app
+from flask import request, current_app
 import jwt
 from functools import wraps
 
@@ -21,7 +21,9 @@ class Auth:
             try:
                 token = authorization_header.split(" ")
                 data = jwt.decode(token[1], current_app.config.get('JWT_SECRET_KEY'))
-                if not data:
+                if data:
+                    setattr(decorated, 'customer_xid', data['customer_xid'])
+                else:
                     return response(ResponseEnum.ERROR.value, 'Unauthorized Access!', 401)
             except:
                 return response(ResponseEnum.ERROR.value, 'Unauthorized Access!', 401)
