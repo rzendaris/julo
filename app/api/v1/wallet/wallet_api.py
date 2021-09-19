@@ -82,7 +82,10 @@ def deposit_wallet():
         request_data = request_schema.load(data)
     except ValidationError as err:
         # Return a nice message if validation fails
-        return response(ResponseEnum.FAIL.value, err.messages, 400)
+        error_return = {
+            "error": err.messages
+        }
+        return response(ResponseEnum.FAIL.value, error_return, 400)
 
     deposit = Deposit(deposit_wallet.customer_xid, DepositStatusEnum.SUCCESS.value, request_data['amount'], request_data['reference_id'])
     deposit.save()
@@ -113,7 +116,10 @@ def withdrawal_wallet():
         request_data = request_schema.load(data)
     except ValidationError as err:
         # Return a nice message if validation fails
-        return response(ResponseEnum.FAIL.value, err.messages, 400)
+        error_return = {
+            "error": err.messages
+        }
+        return response(ResponseEnum.FAIL.value, error_return, 400)
 
     withdrawal = Withdrawal(withdrawal_wallet.customer_xid, DepositStatusEnum.SUCCESS.value, request_data['amount'], request_data['reference_id'])
     withdrawal.save()
